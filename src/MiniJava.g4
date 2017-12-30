@@ -1,81 +1,60 @@
 grammar MiniJava;
 
-goal
-    :   mainClassDeclaration
-        classDeclaration*
-        EOF
+goal:   mainClass classDeclaration* EOF
     ;
 
-mainClassDeclaration
-    :   'class' ID
-        mainClassBody
-    ;
+mainClass
+    :   'class' ID '{' 'public' 'static' 'void' 'main' '(' 'String' '['']' ID ')' '{' statement '}' '}' ;
 
 classDeclaration
-    :   'class' ID ('extends' mytype)?
-        classBody
-    ;
-
-mainClassBody
-    :   '{' mainMethod '}'
-    ;
-
-mainMethod
-    :   mainMethodDeclaration '{' statement '}'
-    ;
-
-mainMethodDeclaration
-    :   'public' 'static' 'void' 'main' '(' 'String' '[' ']' ID ')'
-    ;
-
-classBody
-    :   '{' fieldDeclaration*
-            methodDeclaration* '}'
-    ;
-
-fieldDeclaration
-    :   mytype ID ';'
+    :   'class' ID '{' varDeclaration* methodDeclaration* '}'
+    |	'class' ID 'extends' ID '{' varDeclaration* methodDeclaration* '}'
     ;
 
 varDeclaration
-    :   mytype ID ';'
+    :   type ID ';'
     ;
 
-methodDeclaration
-    :   ( 'public' mytype ID formalParameters
-        /* illegal method declarations */
-        |          mytype ID formalParameters
-            {notifyErrorListeners("method declaration without public");}
-        | 'public'      ID formalParameters
-            {notifyErrorListeners("method declaration without return mytype");}
-        | 'public' mytype    formalParameters
-            {notifyErrorListeners("method declaration without method name");}
-        | 'public' mytype ID
-            {notifyErrorListeners("method declaration without argument list");}
-        )
-        methodBody
-    ;
+//methodDeclaration
+//    :   ( 'public' type ID formalParameters
+//        |          type ID formalParameters
+//            {notifyErrorListeners("method declaration without public");}
+//        | 'public'      ID formalParameters
+//            {notifyErrorListeners("method declaration without return type");}
+//        | 'public' type    formalParameters
+//            {notifyErrorListeners("method declaration without method name");}
+//        | 'public' type ID
+//            {notifyErrorListeners("method declaration without argument list");}
+//        )
+//        methodBody
+//    ;
+//
+//methodBody
+//    :   '{'
+//            varDeclaration*
+//            statement+
+//        '}'
+//    ;
+//
+//formalParameters
+//    :   '(' formalParameterList? ')'
+//    ;
+//
+//formalParameterList
+//    :   formalParameter (',' formalParameter)*
+//    ;
+//
+//formalParameter
+//    :   type ID
+//    ;
 
-methodBody
-    :   '{'
-            varDeclaration*
-            statement+
-        '}'
-    ;
+methodDeclaration:	'public' type ID '(' formallist? ')' '{' varDeclaration* statement*  'return' expression ';' '}' ;
 
-formalParameters
-    :   '(' formalParameterList? ')'
-    ;
+formallist:	type ID formalrest* ;
 
-formalParameterList
-    :   formalParameter (',' formalParameter)*
-    ;
+formalrest:	',' type ID ;
 
-formalParameter
-    :   mytype ID
-    ;
-
-mytype
+type
     :   intArrayType
     |   booleanType
     |   intType
@@ -84,64 +63,38 @@ mytype
 
 statement
     :   '{' statement* '}'
-    # nestedStatement
     |   'if' '(' expression ')'
             statement
         'else'
             statement
-    # ifElseStatement
     |   'while' '(' expression ')'
             statement
-    # whileStatement
     |   'System.out.println' '(' expression ')' ';'
-    # printStatement
     |   ID '=' expression ';'
-    # assignStatement
     |   ID '[' expression ']' '=' expression ';'
-    # arrayAssignStatement
     |   'return' expression ';'
-    # returnStatement
     |   'recur' expression '?' methodArgumentList ':' expression ';'
-    # recurStatement
     ;
 
 expression
     :   expression '[' expression ']'
-    # arrayAccessExpression
     |   expression '.' 'length'
-    # arrayLengthExpression
     |   expression '.' ID methodArgumentList
-    # methodCallExpression
     |   '-' expression
-    # negExpression
     |   '!' expression
-    # notExpression
     |   'new' 'int' '[' expression ']'
-    # arrayInstantiationExpression
     |   'new' ID '(' ')'
-    # objectInstantiationExpression
     |   expression '*'  expression
-    # mulExpression
     |   expression '/'  expression
-    # divExpression
     |   expression '+'  expression
-    # addExpression
     |   expression '-'  expression
-    # subExpression
     |   expression '<'  expression
-    # ltExpression
     |   expression '&&' expression
-    # andExpression
     |   INT
-    # intLitExpression
     |   BOOL
-    # booleanLitExpression
     |   ID
-    # identifierExpression
     |   'this'
-    # thisExpression
     |   '(' expression ')'
-    # parenExpression
     ;
 
 methodArgumentList
