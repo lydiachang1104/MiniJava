@@ -15,38 +15,6 @@ varDeclaration
     :   type ID ';'
     ;
 
-//methodDeclaration
-//    :   ( 'public' type ID formalParameters
-//        |          type ID formalParameters
-//            {notifyErrorListeners("method declaration without public");}
-//        | 'public'      ID formalParameters
-//            {notifyErrorListeners("method declaration without return type");}
-//        | 'public' type    formalParameters
-//            {notifyErrorListeners("method declaration without method name");}
-//        | 'public' type ID
-//            {notifyErrorListeners("method declaration without argument list");}
-//        )
-//        methodBody
-//    ;
-//
-//methodBody
-//    :   '{'
-//            varDeclaration*
-//            statement+
-//        '}'
-//    ;
-//
-//formalParameters
-//    :   '(' formalParameterList? ')'
-//    ;
-//
-//formalParameterList
-//    :   formalParameter (',' formalParameter)*
-//    ;
-//
-//formalParameter
-//    :   type ID
-//    ;
 
 methodDeclaration:	'public' type ID '(' formallist? ')' '{' varDeclaration* statement*  'return' expression ';' '}' ;
 
