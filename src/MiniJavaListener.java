@@ -1,4 +1,4 @@
-// Generated from MiniJava.g4 by ANTLR 4.7.1
+// Generated from /home/chang/MiniJava/MiniJava/src/MiniJava.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -57,25 +57,25 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 */
 	void exitMethodDeclaration(MiniJavaParser.MethodDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#formallist}.
+	 * Enter a parse tree produced by {@link MiniJavaParser#formalList}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormallist(MiniJavaParser.FormallistContext ctx);
+	void enterFormalList(MiniJavaParser.FormalListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#formallist}.
+	 * Exit a parse tree produced by {@link MiniJavaParser#formalList}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormallist(MiniJavaParser.FormallistContext ctx);
+	void exitFormalList(MiniJavaParser.FormalListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#formalrest}.
+	 * Enter a parse tree produced by {@link MiniJavaParser#formalMore}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalrest(MiniJavaParser.FormalrestContext ctx);
+	void enterFormalMore(MiniJavaParser.FormalMoreContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#formalrest}.
+	 * Exit a parse tree produced by {@link MiniJavaParser#formalMore}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalrest(MiniJavaParser.FormalrestContext ctx);
+	void exitFormalMore(MiniJavaParser.FormalMoreContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#type}.
 	 * @param ctx the parse tree
@@ -116,34 +116,4 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMethodArgumentList(MiniJavaParser.MethodArgumentListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#intArrayType}.
-	 * @param ctx the parse tree
-	 */
-	void enterIntArrayType(MiniJavaParser.IntArrayTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#intArrayType}.
-	 * @param ctx the parse tree
-	 */
-	void exitIntArrayType(MiniJavaParser.IntArrayTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#booleanType}.
-	 * @param ctx the parse tree
-	 */
-	void enterBooleanType(MiniJavaParser.BooleanTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#booleanType}.
-	 * @param ctx the parse tree
-	 */
-	void exitBooleanType(MiniJavaParser.BooleanTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MiniJavaParser#intType}.
-	 * @param ctx the parse tree
-	 */
-	void enterIntType(MiniJavaParser.IntTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MiniJavaParser#intType}.
-	 * @param ctx the parse tree
-	 */
-	void exitIntType(MiniJavaParser.IntTypeContext ctx);
 }

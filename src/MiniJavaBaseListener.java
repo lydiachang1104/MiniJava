@@ -1,4 +1,4 @@
-// Generated from MiniJava.g4 by ANTLR 4.7.1
+// Generated from /home/chang/MiniJava/MiniJava/src/MiniJava.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -75,25 +75,25 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFormallist(MiniJavaParser.FormallistContext ctx) { }
+	@Override public void enterFormalList(MiniJavaParser.FormalListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFormallist(MiniJavaParser.FormallistContext ctx) { }
+	@Override public void exitFormalList(MiniJavaParser.FormalListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFormalrest(MiniJavaParser.FormalrestContext ctx) { }
+	@Override public void enterFormalMore(MiniJavaParser.FormalMoreContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFormalrest(MiniJavaParser.FormalrestContext ctx) { }
+	@Override public void exitFormalMore(MiniJavaParser.FormalMoreContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -142,42 +142,6 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMethodArgumentList(MiniJavaParser.MethodArgumentListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIntArrayType(MiniJavaParser.IntArrayTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIntArrayType(MiniJavaParser.IntArrayTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBooleanType(MiniJavaParser.BooleanTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBooleanType(MiniJavaParser.BooleanTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIntType(MiniJavaParser.IntTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIntType(MiniJavaParser.IntTypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

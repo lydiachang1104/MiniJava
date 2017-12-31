@@ -16,17 +16,16 @@ varDeclaration
     ;
 
 
-methodDeclaration:	'public' type ID '(' formallist? ')' '{' varDeclaration* statement*  'return' expression ';' '}' ;
+methodDeclaration:	'public' type ID '(' formalList? ')' '{' varDeclaration* statement*  'return' expression ';' '}' ;
 
-formallist:	type ID formalrest* ;
+formalList:	type ID formalMore* ;
 
-formalrest:	',' type ID ;
+formalMore:	',' type ID ;
 
-type
-    :   intArrayType
-    |   booleanType
-    |   intType
-    |   ID
+type:	'int' '[' ']'
+    |	'boolean'
+    |	'int'
+    |	ID
     ;
 
 statement
@@ -67,18 +66,6 @@ expression
 
 methodArgumentList
     :   '(' (expression (',' expression)*)? ')'
-    ;
-
-intArrayType
-    :   'int' '[' ']'
-    ;
-
-booleanType
-    :   'boolean'
-    ;
-
-intType
-    :   'int'
     ;
 
 INT
