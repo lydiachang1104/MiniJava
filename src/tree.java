@@ -69,6 +69,5 @@ public class tree {
             }
             System.out.print(temp+" ");
         }
-
     }
 }

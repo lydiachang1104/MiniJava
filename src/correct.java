@@ -1,5 +1,4 @@
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.RuleContext;
 
 
 public class correct extends BaseErrorListener {
@@ -15,8 +14,8 @@ public class correct extends BaseErrorListener {
             System.err.println("line " + line + ":" + charPositionInLine + " " + msg);
             underlineError(recognizer, (Token)offendingSymbol, line, charPositionInLine);
         }
-
     }
+
     protected void underlineError(Recognizer recognizer, Token offendingToken, int line,
                                   int charPositionInLine) {
         printErrorLine(recognizer, line);
@@ -38,41 +37,4 @@ public class correct extends BaseErrorListener {
         String errorLine = lines[line - 1];
         System.err.println(errorLine);
     }
-
 }
-
-public class scopeListener(){
-    public void scopeCheck(RuleContext ctx,List<String> listtemp){
-            if (ctx.getChildCount()==0)
-                return;
-            List<String> list = new ArrayList<String>();
-            for (int i=0;i<ctx.getChildCount();i++) {
-                ParseTree element = ctx.getChild(i);
-                if (element instanceof VarDeclarationContext){
-                    list.add(element.getChild(1));
-                }
-                listtemp.addAll(list);
-                scopeCheck(element,listtemp)
-            }
-        }
-
-    public expressionCheck(RuleContext ctx,List<String> listtemp){
-
-        }
-}
-
-
-
-        def ExpressionCheck(node, xvars):
-        EXPCLS = [MiniJavaParser.AssignStatementContext,
-        MiniJavaParser.MulExpressionContext,
-        MiniJavaParser.SubExpressionContext,
-        MiniJavaParser.AddExpressionContext,
-        MiniJavaParser.LtExpressionContext,
-        MiniJavaParser.AndExpressionContext]
-        if isinstance(node, tree.Tree.TerminalNodeImpl):
-        if any([isinstance(node.parentCtx, cls) for cls in EXPCLS]):
-        if str(node) not in ['*', '+', '-', '<', '&&', ';', '='] + xvars:
-        print "Error: %d:%d near %s not defined." % (node.symbol.line, node.symbol.column, node.symbol.text)
-        return False
-        return True
